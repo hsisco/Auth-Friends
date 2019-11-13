@@ -8,10 +8,10 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={props => {
         if (localStorage.getItem('token')) {
-          // if token is in localstorage, render the given component
-          return <Component {...props} />;
+          // if token is in localStorage, render the given component
+          return (<Component {...props} />);
         } else {
-          return <Redirect to="/login" />;
+          return (<Redirect to="/login" />);
       }}}
     />
   );
