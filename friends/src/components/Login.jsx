@@ -1,6 +1,9 @@
 import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
+import { Input } from '../components/Input';
+
+
 export class Login extends React.Component {
   state = {
     credentials: {
@@ -33,17 +36,19 @@ export class Login extends React.Component {
     return (
       <div>
         <form onSubmit={this.login}>
-          <input
+          <Input
             type="text"
             name="username"
             value={this.state.credentials.username}
             onChange={this.handleChange}
+            label="Username"
           />
-          <input
+          <Input
             type="password"
             name="password"
             value={this.state.credentials.password}
             onChange={this.handleChange}
+            label="Password"
           />
           <button>Log in</button>
         </form>
