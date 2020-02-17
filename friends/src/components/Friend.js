@@ -1,22 +1,19 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap';
 
 const Friend = (...friend) => {
   return(
     <Card style={{ width: '18rem' }}>
-      <Card.Body>
-        <Card.Title>{friend.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{friend.location}</Card.Subtitle>
-        <Card.Text>
-          <ul>
-            <li>{friend.birthday}</li>
-            <li>{friend.email}</li>
-          </ul>
-        </Card.Text>
-      </Card.Body>
+      <CardBody>
+        <CardTitle>{friend.name}</CardTitle>
+        <CardSubtitle className="mb-2 text-muted">{friend.location}</CardSubtitle>
+        <CardText>
+            {friend.birthday}
+            {friend.email}
+        </CardText>
+      </CardBody>
     </Card>
   );
 };
 
 export default Friend;
-
