@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
+
+import FriendsList from './components/FriendsList';
+import Login from './components/Login';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/protected">Your Friends</NavLink>
+        </header>
+
+        <Switch>
+          <ProtectedRoute exact path="/protected" component={FriendsList} />
+          <Route path="/login" component={Login} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
