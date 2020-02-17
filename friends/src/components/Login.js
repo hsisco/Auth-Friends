@@ -4,8 +4,8 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 class Login extends React.Component {
   state = {
     credentials: {
-      username: '',
-      password: ''
+      username: 'Lambda School',
+      password: 'i<3Lambd4'
     }
   };
 
