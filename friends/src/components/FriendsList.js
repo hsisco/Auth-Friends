@@ -18,7 +18,7 @@ class FriendsList extends React.Component {
       .then(res => {
         console.log("Friends data:", res);
         this.setState({ friends: res.data });
-        console.log("Friends state:", this.state);
+        console.log("Friends state:", this.state.friends);
       })
       .catch(err => console.log("getData FAILED:", err))
   };
@@ -29,7 +29,7 @@ class FriendsList extends React.Component {
         <CardGroup>
           {this.state.friends.map(friend => (
             <Friend 
-              key={friend.id} 
+              key={friend.id}
               {...friend}
             />
           ))}
