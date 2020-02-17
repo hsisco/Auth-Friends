@@ -1,6 +1,7 @@
 import React from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import CardDeck from 'react-bootstrap/CardDeck'
+import CardDeck from 'react-bootstrap/CardDeck';
+import Friend from './Friend';
 
 
 class FriendsList extends React.Component {
@@ -27,15 +28,15 @@ class FriendsList extends React.Component {
   render(){
     return(
       <div className="friends">
-      <CardDeck>
-        {this.state.friends.map(friend => (
-          <Friend 
-            key={friend.id} 
-            friend={friend}
-          />
-        ))}
-      </CardDeck>
-    </div>
+        <CardDeck>
+          {this.state.friends.map(friend => (
+            <Friend 
+              key={friend.id} 
+              {...friend}
+            />
+          ))}
+        </CardDeck>
+      </div>
     )
   };
 };
