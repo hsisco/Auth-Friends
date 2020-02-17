@@ -1,8 +1,7 @@
 import React from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import CardDeck from 'react-bootstrap/CardDeck';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import { CardGroup } from 'reactstrap';
 import Friend from './Friend';
-
 
 class FriendsList extends React.Component {
   state = {
@@ -18,9 +17,8 @@ class FriendsList extends React.Component {
       .get("/friends")
       .then(res => {
         console.log("Friends data:", res);
-        this.setState({
-          friends: res.data
-        });
+        this.setState({ friends: res.data });
+        console.log("Friends state:", this.state);
       })
       .catch(err => console.log("getData FAILED:", err))
   };
@@ -28,14 +26,14 @@ class FriendsList extends React.Component {
   render(){
     return(
       <div className="friends">
-        <CardDeck>
+        <CardGroup>
           {this.state.friends.map(friend => (
             <Friend 
               key={friend.id} 
               {...friend}
             />
           ))}
-        </CardDeck>
+        </CardGroup>
       </div>
     )
   };
