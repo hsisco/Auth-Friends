@@ -2,6 +2,28 @@ import React from 'react';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Form = (props) => {
+  const [newFriend, setNewFriend] = useState({
+    name: '',
+    birthday: '',
+    location: '',
+    email: ''
+  })
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    axiosWithAuth
+      .post('/friends', friend)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err))
+    }
+
+  const handleChanges = e => {
+    let input = e.target.name;
+    setNewFriend({ ...newFriend, [name] : e.target.value})
+  }
+
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup row>
