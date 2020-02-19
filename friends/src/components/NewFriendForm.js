@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const NewFriendForm = (props) => {
-  const [friend, setFriend] = useState({
-    name: '',
-    email: '',
-    birthday: '',
-    location: ''
-  })
+const initialFriend = {
+  name: '',
+  email: '',
+  birthday: '',
+  location: ''
+};
+
+const NewFriendForm = (friends) => {
+  const [friend, setFriend] = useState(initialFriend)
 
   const handleSubmit = e => {
     e.preventDefault();
-    axiosWithAuth
+    axiosWithAuth()
       .post('/friends', friend)
       .then(res => {
         console.log(res)

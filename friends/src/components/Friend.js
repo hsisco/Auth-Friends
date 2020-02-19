@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap';
 
-const Friend = (...friend) => {
+const Friend = ({friend}) => {
   return(
     <div>
       <Card>

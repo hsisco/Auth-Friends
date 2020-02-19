@@ -2,6 +2,7 @@ import React from 'react';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import { CardGroup } from 'reactstrap';
 import Friend from './Friend';
+import NewFriendForm from './NewFriendForm';
 
 class FriendsList extends React.Component {
   state = {
@@ -26,11 +27,12 @@ class FriendsList extends React.Component {
   render(){
     return(
       <div className="friends">
+        <NewFriendForm friends={this.state.friends} />
         <CardGroup>
           {this.state.friends.map(friend => (
             <Friend 
               key={friend.id}
-              {...friend}
+              friend={friend}
             />
           ))}
         </CardGroup>
