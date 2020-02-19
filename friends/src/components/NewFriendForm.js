@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth';
 import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const Form = (props) => {
-  const [newFriend, setNewFriend] = useState({
+const NewFriendForm = (props) => {
+  const [friend, setFriend] = useState({
     name: '',
+    email: '',
     birthday: '',
-    location: '',
-    email: ''
+    location: ''
   })
 
   const handleSubmit = e => {
@@ -16,38 +17,38 @@ const Form = (props) => {
       .then(res => {
         console.log(res)
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log("New friend not submitted:", err))
     }
 
   const handleChanges = e => {
-    let input = e.target.name;
-    setNewFriend({ ...newFriend, [name] : e.target.value})
+    e.persist();
+    setFriend({ ...friend, [e.target.name] : e.target.value})
   }
 
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup row>
-        <Label for="friendName" sm={2}>Name</Label>
+        <Label sm={2}>Name</Label>
         <Col sm={10}>
-          <Input type="text" name="name" id="friendName" onChange={handleChanges} />
+          <Input type="text" name="name" value={friend.name} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="friendLocation" sm={2}>Location</Label>
         <Col sm={10}>
-          <Input type="text" name="location" id="friendLocation" onChange={handleChanges} />
+          <Input type="text" name="location" value={friend.location} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="friendBday" sm={2}>Birthday</Label>
         <Col sm={10}>
-          <Input type="date" name="birthday" id="friendBday" onChange={handleChanges} />
+          <Input type="date" name="birthday" value={friend.birthday} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="friendEmail" sm={2}>Email</Label>
         <Col sm={10}>
-          <Input type="email" name="email" id="friendEmail" onChange={handleChanges} />
+          <Input type="email" name="email" value={friend.email} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup check row>
@@ -61,4 +62,4 @@ const Form = (props) => {
   );
 }
 
-export default Form;
+export default NewFriendForm;
