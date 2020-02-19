@@ -34,19 +34,19 @@ const NewFriendForm = (props) => {
         </Col>
       </FormGroup>
       <FormGroup row>
-        <Label for="friendLocation" sm={2}>Location</Label>
+        <Label sm={2}>Location</Label>
         <Col sm={10}>
           <Input type="text" name="location" value={friend.location} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup row>
-        <Label for="friendBday" sm={2}>Birthday</Label>
+        <Label sm={2}>Birthday</Label>
         <Col sm={10}>
           <Input type="date" name="birthday" value={friend.birthday} onChange={handleChanges} />
         </Col>
       </FormGroup>
       <FormGroup row>
-        <Label for="friendEmail" sm={2}>Email</Label>
+        <Label sm={2}>Email</Label>
         <Col sm={10}>
           <Input type="email" name="email" value={friend.email} onChange={handleChanges} />
         </Col>
