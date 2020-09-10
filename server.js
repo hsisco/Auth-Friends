@@ -13,37 +13,49 @@ let friends = [
     id: 1,
     name: 'Rachel Green',
     age: 30,
-    email: 'rachel@friends.com'
+    email: 'rachel@friends.com',
+    birthday: 'May 5',
+    location: 'New York, NY'
   },
   {
     id: 2,
     name: 'Joey Tribbiani',
     age: 34,
-    email: 'joey@friends.com'
+    email: 'joey@friends.com',
+    birthday: 'Jan 6',
+    location: 'New York, NY'
   },
   {
     id: 3,
     name: 'Chandler Bing',
     age: 32,
-    email: 'chandler@friends.com'
+    email: 'chandler@friends.com',
+    birthday: 'Apr 21',
+    location: 'New York, NY'
   },
   {
     id: 4,
     name: 'Ross Geller',
     age: 32,
-    email: 'ross@friends.com'
+    email: 'ross@friends.com',
+    birthday: 'Oct 18',
+    location: 'New York, NY'
   },
   {
     id: 5,
     name: 'Monica Bing',
     age: 31,
-    email: 'monica@friends.com'
+    email: 'monica@friends.com',
+    birthday: 'Mar 30',
+    location: 'New York, NY'
   },
   {
     id: 6,
     name: 'Phoebe Buffay-Hannigan',
     age: 30,
-    email: 'phoebe@friends.com'
+    email: 'phoebe@friends.com',
+    birthday: 'Feb 16',
+    location: 'New York, NY'
   }
 ];
 
@@ -62,7 +74,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'Lambda School' && password === '1234') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
